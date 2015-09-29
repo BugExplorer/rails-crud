@@ -9,7 +9,7 @@ RSpec.describe Post, type: :model do
     expect(post).to be_valid
   end
 
-  it "is invalid without an title" do
+  it "is invalid without a title" do
     post = Post.new(
       title: "",
       content: "Content",
@@ -17,7 +17,7 @@ RSpec.describe Post, type: :model do
     expect(post).not_to be_valid
   end
 
-  it "is invalid without an content" do
+  it "is invalid without a content" do
     post = Post.new(
       title: "Title",
       content: "",

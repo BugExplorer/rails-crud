@@ -19,6 +19,7 @@ module PostsProject
   class Application < Rails::Application
     config.generators do |g|
       g.test_framework :rspec
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

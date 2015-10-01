@@ -42,4 +42,8 @@
       </tr>
     </tbody>
   </table>
+
+  <% if @post.comments.any? %>
+    There are comments
+  <% end %>
 </div>

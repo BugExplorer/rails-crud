@@ -1,12 +1,11 @@
 class CommentsController < ApplicationController
 
-  before_action :set_commentable
-
   def show
     @comment = Comment.find(params[:id])
   end
 
   def create
+    @commentable = find_commentable
     @comment = @commentable.comments.new comment_params
     if @comment.save
       redirect_to @commentable
@@ -18,7 +17,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update_attributes(comment_params)
-      redirect_to @comment
+      redirect_to @comment.commentable
     else
       render 'edit'
     end
@@ -30,21 +29,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id]).destroy
-    redirect_to :back
+    redirect_to @comment.commentable
   end
 
   private
-    def set_commentable
-      @commentable ||= find_commentable
-    end
-
     def find_commentable
-      params.each do |name, value|
-        if name =~ /(.+)_id$/
-          return $1.classify.constantize.find(value)
-        end
-      end
-      nil
+      resource, id = request.path.split('/')[1, 2]
+      resource.singularize.classify.constantize.find(id)
     end
 
     def comment_params

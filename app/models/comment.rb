@@ -3,5 +3,5 @@ class Comment < ActiveRecord::Base
 
   validates :author_name, length: { maximum: 65 }
   validates :content, presence: true
-  validates :commentable_type, inclusion: { in: %w(Post) }
+  validates :commentable_type, inclusion: { in: %w(Article Post) }
 end

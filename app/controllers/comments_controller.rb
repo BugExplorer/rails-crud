@@ -6,11 +6,9 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable
-    @comment = @commentable.comments.new comment_params
+    @comment = @commentable.comments.build comment_params
     if @comment.save
       redirect_to @commentable
-    else
-      render 'new'
     end
   end
 

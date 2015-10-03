@@ -1,0 +1,30 @@
+<tr>
+  <td class="col-md-2">
+    <%= article.title %>
+  </td>
+  <td class="col-md-2">
+    <%= article.author_name %>
+  </td>
+  <td class="col-md-6">
+    <%= article.content %>
+  </td>
+  <td class="col-md-2">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Actions <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to 'Show', article %>
+        </li>
+        <li>
+          <%= link_to 'Edit', edit_article_path(article) %>
+        </li>
+        <li><%= link_to 'Delete', article, method: :delete,
+                data: { confirm: "Are you sure?" } %>
+        </li>
+      </ul>
+    </div>
+  </td>
+</tr>

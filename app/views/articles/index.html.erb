@@ -1,0 +1,22 @@
+<h1>Rails project</h1>
+
+<h2>
+  <%= link_to "Create new article", new_article_path %>
+</h2>
+
+<% if @articles.any? %>
+  <table class="table table-hover table-bordered">
+    <caption>Posts</caption>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author name</th>
+        <th>Content</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @articles %>
+    </tbody>
+  </table>
+<% end %>

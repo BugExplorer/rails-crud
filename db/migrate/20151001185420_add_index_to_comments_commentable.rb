@@ -1,6 +1,5 @@
 class AddIndexToCommentsCommentable < ActiveRecord::Migration
   def change
-    add_index :comments, :commentable_type
-    add_index :comments, :commentable_id
+    add_index :comments, [:commentable_type, :commentable_id]
   end
 end

@@ -1,0 +1,12 @@
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.author_name %>
+      <small>Posted <%= time_ago_in_words(comment.created_at) %> ago.</small>
+      <small><%= link_to "show", comment %></small>
+      <small><%= link_to "edit", edit_comment_path %></small>
+      <small><%= link_to "delete", comment, method: :delete,
+                 data: { confirm: "Are you sure?" } %></small>
+    </h4>
+      <%= comment.content %>
+  </div>
+</div>

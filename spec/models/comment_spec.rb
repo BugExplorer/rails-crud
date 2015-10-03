@@ -19,4 +19,9 @@ RSpec.describe Comment, type: :model do
     comment = FactoryGirl.build(:comment, commentable_type: nil)
     expect(comment).not_to be_valid
   end
+
+  it "is invalid with long author name" do
+    comment = FactoryGirl.build(:comment, author_name: "a" * 66)
+    expect(comment).not_to be_valid
+  end
 end

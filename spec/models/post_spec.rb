@@ -19,4 +19,14 @@ RSpec.describe Post, type: :model do
     post = FactoryGirl.build(:post, author_name: nil)
     expect(post).not_to be_valid
   end
+
+  it "is invalid with long title" do
+    post = FactoryGirl.build(:post, title: "a" * 256)
+    expect(post).not_to be_valid
+  end
+
+  it "is invalid with long author name" do
+    post = FactoryGirl.build(:post, author_name: "a" * 66)
+    expect(post).not_to be_valid
+  end
 end

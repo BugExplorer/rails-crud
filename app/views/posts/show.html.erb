@@ -2,48 +2,67 @@
   <%= link_to 'Go to the index', root_url %>
 </h2>
 
-<div class="row">
-  <table class="table table-hover table-bordered">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author name</th>
-        <th>Content</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="col-md-2">
-          <%= @post.title %>
-        </td>
-        <td class="col-md-2">
-          <%= @post.author_name %>
-        </td>
-        <td class="col-md-6">
-          <%= @post.content %>
-        </td>
-        <td class="col-md-2">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle"
-              data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false"> Actions <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to 'Edit', edit_post_path(@post) %>
-              </li>
-              <li><%= link_to 'Delete', @post, method: :delete,
-                      data: { confirm: "Are you sure?" } %>
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author name</th>
+          <th>Content</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-md-2">
+            <%= @post.title %>
+          </td>
+          <td class="col-md-2">
+            <%= @post.author_name %>
+          </td>
+          <td class="col-md-6">
+            <%= @post.content %>
+          </td>
+          <td class="col-md-2">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"> Actions <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to 'Edit', edit_post_path(@post) %>
+                </li>
+                <li><%= link_to 'Delete', @post, method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <% if @post.comments.any? %>
-    There are comments
-  <% end %>
+    <hr>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="well">
+          <h4>Leave a Comment:</h4>
+          <%= render partial: "comments/form", locals: {commentable: @post} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <hr>
+
+        <% if @post.comments.any? %>
+          <%= render @post.comments %>
+        <% end %>
+        </div>
+    </div>
+  </div>
 </div>
+

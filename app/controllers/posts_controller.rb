@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.build_picture
   end
 
   def show
@@ -41,6 +42,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content, :author_name)
+      params.require(:post).permit(:title, :content, :author_name,
+                                   picture_attributes: [:data])
     end
 end

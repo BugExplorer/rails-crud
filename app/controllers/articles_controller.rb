@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.build_thumbnail
   end
 
   def show
@@ -41,6 +42,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :content, :author_name)
+      params.require(:article).permit(:title, :content, :author_name,
+                                      thumbnail_attributes: [:data])
     end
 end

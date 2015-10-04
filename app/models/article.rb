@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
   validates :author_name, presence: true, length: { maximum: 65 }
   validates :content,     presence: true
 
-
+  has_one :thumbnail, as: :assetable, dependent: :destroy
+  accepts_nested_attributes_for :thumbnail
   has_many :comments, as: :commentable, dependent: :delete_all
 end

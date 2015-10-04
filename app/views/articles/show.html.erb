@@ -22,6 +22,7 @@
             <%= @article.author_name %>
           </td>
           <td class="col-md-6">
+            <%= image_tag @article.thumbnail.data_url if @article.thumbnail %>
             <%= @article.content %>
           </td>
           <td class="col-md-2">

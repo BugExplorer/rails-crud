@@ -7,15 +7,13 @@
       <%= f.label :content %>
       <%= f.text_area :content, class: 'form-control' %>
 
+      <%= f.label :author_name %>
+      <%= f.text_field :author_name, class: 'form-control' %>
 
       <%= f.fields_for :picture do |p| %>
         <%= p.label :picture %>
         <%= p.file_field :data %>
       <% end %>
-
-      <%= f.label :author_name %>
-      <%= f.text_field :author_name, class: 'form-control' %>
-
 
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>

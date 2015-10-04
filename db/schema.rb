@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003161921) do
+ActiveRecord::Schema.define(version: 20151004124911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20151003161921) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "filename",       limit: 45
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.string   "type",           limit: 30
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "assets", ["assetable_id", "assetable_type"], name: "index_assets_on_assetable_id_and_assetable_type", using: :btree
+  add_index "assets", ["type"], name: "index_assets_on_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "author_name"

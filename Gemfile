@@ -8,6 +8,9 @@ gem 'bootstrap-sass',        '3.3.5.1'
 gem 'jquery-rails',          '4.0.5'
 gem 'turbolinks',            '2.5.3'
 gem 'puma',                  '2.14.0'
+gem 'carrierwave',           '0.10.0'
+gem 'mini_magick',           '3.8.0'
+gem 'fog',                   '1.26.0'
 
 group :development, :test do
   gem 'rspec-rails',         '3.3.3'

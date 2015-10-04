@@ -1,5 +1,5 @@
 <h2>
-  <%= link_to 'Go to the index', root_url %>
+  <%= link_to 'Go to the posts', posts_path %>
 </h2>
 
 <div class="container">
@@ -22,7 +22,8 @@
             <%= @post.author_name %>
           </td>
           <td class="col-md-6">
-            <%= @post.content %>
+            <%= @post.content %><br>
+            <%= image_tag @post.picture.data_url if @post.picture %>
           </td>
           <td class="col-md-2">
             <div class="btn-group">

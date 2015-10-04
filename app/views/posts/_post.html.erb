@@ -7,6 +7,8 @@
   </td>
   <td class="col-md-6">
     <%= post.content %>
+    <br>
+    <%= image_tag post.picture.data_url if post.picture %>
   </td>
   <td class="col-md-2">
     <div class="btn-group">

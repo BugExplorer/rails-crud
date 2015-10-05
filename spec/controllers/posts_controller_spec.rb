@@ -64,7 +64,7 @@ RSpec.describe PostsController, type: :controller do
         }.to change(Post, :count).by(1)
       end
 
-      it "redirects to posts#index" do
+      it "redirects to post#show" do
         post :create, post: FactoryGirl.attributes_for(:post)
         expect(response).to redirect_to post_path(assigns[:post])
       end
@@ -144,7 +144,7 @@ RSpec.describe PostsController, type: :controller do
 
     it "redirects to posts#index" do
       delete :destroy, id: @post
-      expect(response).to redirect_to root_url
+      expect(response).to redirect_to posts_path
     end
   end
 end

@@ -1,6 +1,10 @@
 FactoryGirl.define do
   factory :tag do
-    
-  end
+    name "Name"
+    slug "Slug"
 
+    factory :invalid_tag do
+      slug nil
+    end
+  end
 end

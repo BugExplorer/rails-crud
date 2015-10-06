@@ -45,6 +45,15 @@
       </tbody>
     </table>
 
+    <% if @post_tags %>
+      <div class="well">
+        <p>Tags:</p>
+        <% @post_tags.each do |tag| %>
+          <%= link_to tag.name, tag %>
+        <% end %>
+      </div>
+    <% end %>
+
     <hr>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">

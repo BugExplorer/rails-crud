@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  before_action :get_all_tags, only: [:new, :create, :edit, :update]
-  # before_action :get_post_tags
+  before_action :get_all_tags, only: [:new, :create]
 
   def index
     @posts = Post.all
@@ -13,6 +12,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_tags = Tag.where(id: @post.tag_ids)
   end
 
   def edit

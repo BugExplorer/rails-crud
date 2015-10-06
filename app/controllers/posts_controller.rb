@@ -13,6 +13,14 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_tags = Tag.where(id: @post.tag_ids)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render template: "posts/show_pdf.html.erb",
+               pdf: "report",
+               layout: "pdf.html.erb"
+      end
+    end
   end
 
   def edit

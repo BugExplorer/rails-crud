@@ -9,5 +9,6 @@ class Post < ActiveRecord::Base
 
   has_one :picture, as: :assetable, dependent: :destroy
   accepts_nested_attributes_for :picture
+
   has_many :comments, as: :commentable, dependent: :delete_all
 end

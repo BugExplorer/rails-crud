@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :get_all_tags, only: [:new, :create, :edit, :update]
+  # before_action :get_post_tags
 
   def index
     @posts = Post.all
@@ -19,6 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new post_params
+    @post.tag_ids = params[:tag_ids]
     if @post.save
       redirect_to @post
     else
@@ -41,6 +44,10 @@ class PostsController < ApplicationController
   end
 
   private
+    def get_all_tags
+      @tags = Tag.all
+    end
+
     def post_params
       params.require(:post).permit(:title, :content, :author_name,
                                    picture_attributes: [:data])

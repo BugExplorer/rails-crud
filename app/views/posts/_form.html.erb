@@ -15,7 +15,21 @@
         <%= p.file_field :data %>
       <% end %>
 
+      <%= f.label "Tags" %>
+      <%= select_tag(:tag_ids,
+                     options_from_collection_for_select(@tags, :id, :name),
+                     multiple: true, class: 'form-control') %>
+
+      <br>
+
       <%= f.submit "Submit", class: "btn btn-primary" %>
+
     <% end %>
   </div>
 </div>
+
+<script>
+        $(document).ready(function() {
+          $("#tag_ids").select2({ tags: true, theme: "bootstrap" })
+        });
+</script>

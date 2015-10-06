@@ -45,8 +45,7 @@ ActiveRecord::Schema.define(version: 20151006073824) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

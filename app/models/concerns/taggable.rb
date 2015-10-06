@@ -2,8 +2,8 @@ module Taggable
   extend ActiveSupport::Concern
 
   included do
-    scope :any_tags, -> (tags){ where('tags && ARRAY[?]', Array.wrap(tags).map(&:to_i)) }
-    scope :all_tags, -> (tags){ where('tags @> ARRAY[?]', Array.wrap(tags).map(&:to_i)) }
+    scope :any_tags, -> (tags){ where('tag_ids && ARRAY[?]', Array.wrap(tags).map(&:to_i)) }
+    scope :all_tags, -> (tags){ where('tag_ids @> ARRAY[?]', Array.wrap(tags).map(&:to_i)) }
   end
 
   def tag_ids=(value)

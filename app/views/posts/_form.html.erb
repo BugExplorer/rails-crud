@@ -15,12 +15,10 @@
         <%= p.file_field :data %>
       <% end %>
 
-      <% if @tags %>
       <%= f.label "Tags" %>
       <%= select_tag(:tag_ids,
-                     options_from_collection_for_select(@tags, :id, :name),
+                     options_from_collection_for_select(@tags, :id, :name, @post.tag_ids),
                      multiple: true, class: 'form-control') %>
-      <% end %>
       <br>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>

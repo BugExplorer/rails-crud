@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :get_all_tags, only: [:new, :create]
+  before_action :get_all_tags, only: [:new, :create, :edit, :update]
 
   def index
     @posts = Post.all

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails',                 '4.2.4'
 gem 'pg',                    '0.18.3'
+gem 'slim',                  '3.0.6'
 gem 'sass-rails',            '5.0.4'
 gem 'bootstrap-sass',        '3.3.5.1'
 gem 'jquery-rails',          '4.0.5'

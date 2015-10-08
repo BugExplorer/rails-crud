@@ -1,0 +1,30 @@
+.row
+  .col-md-8.col-md-offset-2
+    = form_for @post, html: { multipart: true } do |f|
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+
+      = f.label :content
+      = f.text_area :content, class: 'form-control'
+
+      = f.label :author_name
+      = f.text_field :author_name, class: 'form-control'
+
+      = f.fields_for :picture do |p|
+        = p.label :picture
+        = p.file_field :data
+
+
+      = f.label "Tags"
+      = select_tag(:tag_ids,
+                   options_from_collection_for_select(@tags, :id, :name,
+                                                      @post.tag_ids),
+                   multiple: true, class: 'form-control')
+      br
+
+      = f.submit "Submit", class: "btn btn-primary"
+
+javascript:
+  $(document).ready(function() {
+    $("#tag_ids").select2({ tags: true, theme: "bootstrap" })
+  });

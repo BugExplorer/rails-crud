@@ -1,0 +1,46 @@
+h2
+  = link_to 'Go to the articles', articles_path
+
+.container
+  .row
+    table class="table table-hover table-bordered"
+      thead
+        tr
+          th Title
+          th Author name
+          th Content
+          th Actions
+      tbody
+        tr
+          td class="col-md-2"
+            = @article.title
+          td class="col-md-2"
+            = @article.author_name
+          td class="col-md-6"
+            - if @article.thumbnail
+              = image_tag @article.thumbnail.data_url
+            = @article.content
+          td class="col-md-2"
+            .btn-group
+              button [ type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" ]
+                ' Actions
+                span class="caret"
+              ul class="dropdown-menu"
+                li = link_to 'Edit', edit_article_path(@article)
+                li = link_to 'Delete', @article, method: :delete,
+                       data: { confirm: "Are you sure?" }
+
+    hr
+    .row
+      .col-md-8.col-md-offset-2
+        .well
+          h4 Leave a Comment:
+          = render partial: "comments/form", locals: { commentable: @article}
+
+    - if @article.comments.any?
+      .row
+        .col-md-8.col-md-offset-2
+          hr
+          = render @article.comments

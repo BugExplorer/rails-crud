@@ -1,0 +1,21 @@
+h2
+  = link_to 'Go to the index', root_url
+
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        .media
+          .media-body
+            h4 class="media-heading"
+              = @comment.author_name
+
+              small   Posted #{time_ago_in_words(@comment.created_at)} ago.
+              small = link_to " show ", @comment
+              small = link_to " edit ", edit_comment_path
+              small
+                = link_to "delete", @comment, method: :delete,
+                    data: { confirm: "Are you sure?" }
+            = @comment.content
+
+

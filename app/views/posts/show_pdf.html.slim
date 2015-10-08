@@ -1,0 +1,15 @@
+p Title:
+  #{@post.title}
+p Author:
+  #{@post.author_name}
+p Content:
+  #{@post.content}
+- if @post.picture
+  p = wicked_pdf_image_tag @post.picture.data_url
+
+- if @post_tags.any?
+  div
+    p Tags:
+    - @post_tags.each do |tag|
+      = link_to tag.name, tag
+

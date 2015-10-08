@@ -1,0 +1,23 @@
+tr
+  td class="col-md-2"
+    = article.title
+  td class="col-md-2"
+    = article.author_name
+  td class="col-md-6"
+    = image_tag article.thumbnail.data_url if article.thumbnail
+    = article.content
+  td class="col-md-2"
+    .btn-group
+      button [ type="button" class="btn btn-default dropdown-toggle"
+               data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false" ]
+        ' Actions
+        span class="caret"
+      ul class="dropdown-menu"
+        li
+          = link_to 'Show', article
+        li
+          = link_to 'Edit', edit_article_path(article)
+        li
+          = link_to 'Delete', article, method: :delete,
+            data: { confirm: "Are you sure?" }

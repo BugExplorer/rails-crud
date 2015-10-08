@@ -16,9 +16,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render template: "posts/show_pdf.html.erb",
+        render template: "posts/show_pdf.html.slim",
                pdf: "report",
-               layout: "pdf.html.erb"
+               layout: "pdf.html.slim"
       end
     end
   end

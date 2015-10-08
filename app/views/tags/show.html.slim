@@ -1,0 +1,13 @@
+h2
+  Searching by = @tag.name
+
+- if @posts.any?
+  table class="table table-hover table-bordered"
+    thead
+      tr
+        th Title
+        th Author name
+        th Content
+        th Actions
+    tbody
+      - render @posts

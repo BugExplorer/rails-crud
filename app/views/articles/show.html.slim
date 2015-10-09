@@ -8,6 +8,7 @@ h2
         tr
           th Title
           th Author name
+          th Description
           th Content
           th Actions
       tbody
@@ -16,7 +17,9 @@ h2
             = @article.title
           td class="col-md-2"
             = @article.author_name
-          td class="col-md-6"
+          td class="col-md-2"
+            = @article.description
+          td class="col-md-4"
             - if @article.thumbnail
               = image_tag @article.thumbnail.data_url
             = @article.content

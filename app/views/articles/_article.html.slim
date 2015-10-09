@@ -3,7 +3,9 @@ tr
     = article.title
   td class="col-md-2"
     = article.author_name
-  td class="col-md-6"
+  td class="col-md-2"
+    = article.description
+  td class="col-md-4"
     = image_tag article.thumbnail.data_url if article.thumbnail
     = article.content
   td class="col-md-2"

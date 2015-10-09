@@ -10,6 +10,11 @@ RSpec.describe Article, type: :model do
     expect(article).not_to be_valid
   end
 
+  it "is invalid without a description" do
+    article = FactoryGirl.build(:article, description: nil)
+    expect(article).not_to be_valid
+  end
+
   it "is invalid without a content" do
     article = FactoryGirl.build(:article, content: nil)
     expect(article).not_to be_valid

@@ -39,6 +39,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.tag_ids = params[:tag_ids] if params[:tag_ids]
     if @post.update_attributes post_params
       redirect_to @post
     else

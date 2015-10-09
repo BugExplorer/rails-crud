@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.tag_ids = params[:tag_ids] if params[:tag_ids]
     if @article.update_attributes article_params
       redirect_to @article
     else

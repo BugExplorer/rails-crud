@@ -7,13 +7,5 @@ h2
   = link_to 'Go to the index', root_url
 
 - if @posts.any?
-  table class="table table-hover table-bordered"
-    caption Posts
-    thead
-      tr
-        th Title
-        th Author name
-        th Content
-        th Actions
-    tbody
-      = render @posts
+  ol.entries
+    = render @posts

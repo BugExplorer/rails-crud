@@ -49,28 +49,38 @@ table > caption {
 }
 
 /* posts */
-.posts {
+.entries {
   list-style: none;
   padding: 0;
   li {
     padding: 10px 0;
+    //margin: 5px 0;
     border-top: 1px solid #e8e8e8;
   }
-  .author {
-    margin-top: 5em;
-    padding-top: 0;
+  h4 {
+    display: inline;
   }
   .content {
     display: block;
-    margin-left: 60px;
+    margin-top: 10px;
     img {
       display: block;
       padding: 5px 0;
     }
   }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
+  .right {
+    float: right;
+    display: inline;
+  }
+  .menu {
+    li {
+      display: inline;
+      margin-right: 10px;
+      border-top: none;
+    }
+    list-style-type: none;
+    border: none;
+    margin: 0;
+    padding: 0;
   }
 }

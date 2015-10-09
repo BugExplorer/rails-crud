@@ -1,24 +1,11 @@
-tr
-  td class="col-md-2"
-    = post.title
-  td class="col-md-2"
-    = post.author_name
-  td class="col-md-6"
-    = post.content
-    br
-    = image_tag post.picture.data_url if post.picture
-  td class="col-md-2"
-    .btn-group
-      button [ type="button" class="btn btn-default dropdown-toggle"
-               data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false" ]
-        ' Actions
-        span class="caret"
-      ul class="dropdown-menu"
-        li
-          = link_to 'Show', post
-        li
-          = link_to 'Edit', edit_post_path(post)
-        li
-          = link_to 'Delete', post, method: :delete,
-            data: { confirm: "Are you sure?" }
+li
+  h4 Post: #{post.title} | by #{post.author_name}
+  span.right
+    ul.menu
+      li
+        = link_to 'Show', post
+      li
+        = link_to 'Edit', edit_post_path(post)
+      li
+        = link_to 'Delete', post, method: :delete,
+          data: { confirm: "Are you sure?" }

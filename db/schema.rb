@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009141631) do
+ActiveRecord::Schema.define(version: 20151009143545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,13 @@ ActiveRecord::Schema.define(version: 20151009141631) do
     t.string   "title"
     t.string   "content"
     t.string   "author_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "description"
+    t.integer  "tag_ids",     default: [],              array: true
   end
+
+  add_index "articles", ["tag_ids"], name: "index_articles_on_tag_ids", using: :gin
 
   create_table "assets", force: :cascade do |t|
     t.string   "filename",       limit: 45

@@ -14,7 +14,6 @@
         = p.label :picture
         = p.file_field :data
 
-
       = f.label "Tags"
       = select_tag(:tag_ids,
                    options_from_collection_for_select(@tags, :id, :name,

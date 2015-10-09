@@ -15,6 +15,7 @@ gem 'select2-rails',         '4.0.0'
 gem 'faker',                 '1.5.0'
 gem 'wicked_pdf',            '0.11.0'
 gem 'wkhtmltopdf-binary',    '0.9.9.3'
+gem 'annotate',              '2.6.10'
 
 group :development, :test do
   gem 'rspec-rails',         '3.3.3'

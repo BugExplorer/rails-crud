@@ -35,6 +35,12 @@ h2
                 li = link_to 'Delete', @article, method: :delete,
                        data: { confirm: "Are you sure?" }
 
+    - if @article_tags
+      .well
+        p Tags:
+        - @article_tags.each do |tag|
+          ' #{link_to tag.name, tag}
+
     hr
     .row
       .col-md-8.col-md-offset-2

@@ -9,3 +9,5 @@ h2
 - if @articles.any?
   ol.entries
     = render @articles
+  .footer
+    = paginate @articles

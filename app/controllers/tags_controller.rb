@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :find_tag
 
   def show
-    @entries = ContentView.any_tags(@tag.id).recently
+    @entries = ContentView.any_tags(@tag.id).recently.page(params[:page]).per(10)
   end
 
   protected

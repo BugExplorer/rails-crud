@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :get_all_tags, only: [:new, :create, :edit, :update]
 
   def index
-    @articles = Article.all
+    @articles = Article.all.page(params[:page]).per(5)
   end
 
   def new

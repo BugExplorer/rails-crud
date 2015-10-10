@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails',                 '4.2.4'
 gem 'pg',                    '0.18.3'
 gem 'slim',                  '3.0.6'
@@ -15,6 +14,7 @@ gem 'select2-rails',         '4.0.0'
 gem 'wicked_pdf',            '0.11.0'
 gem 'wkhtmltopdf-binary',    '0.9.9.3'
 gem 'annotate',              '2.6.10'
+gem 'kaminari',              '0.16.3'
 
 group :development, :test do
   gem 'rspec-rails',         '3.3.3'

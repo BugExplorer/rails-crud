@@ -33,13 +33,14 @@ h2
                 li = link_to 'Delete', @post, method: :delete,
                        data: { confirm: "Are you sure?" }
 
-    - if @post_tags
+    - if @post_tags.any?
       .well
         p Tags:
         - @post_tags.each do |tag|
           ' #{link_to tag.name, tag}
+      hr
 
-    hr
+
     .row
       .col-md-8.col-md-offset-2
         .well

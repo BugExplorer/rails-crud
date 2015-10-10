@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :get_all_tags, only: [:new, :create, :edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
   end
 
   def new

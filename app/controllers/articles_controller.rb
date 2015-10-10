@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
+      @article.build_thumbnail
       render 'new'
     end
   end

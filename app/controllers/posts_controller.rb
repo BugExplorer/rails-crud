@@ -33,6 +33,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
+      @post.build_picture
       render 'new'
     end
   end

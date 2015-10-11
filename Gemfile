@@ -13,15 +13,16 @@ gem 'mini_magick',           '3.8.0'
 gem 'select2-rails',         '4.0.0'
 gem 'wicked_pdf',            '0.11.0'
 gem 'wkhtmltopdf-binary',    '0.9.9.3'
-gem 'annotate',              '2.6.10'
 gem 'kaminari',              '0.16.3'
+gem 'populator',             '1.0.0'
+gem 'faker',                 '1.5.0'
+gem 'uglifier',              '2.7.2'
 
 group :development, :test do
   gem 'rspec-rails',         '3.3.3'
   gem 'factory_girl_rails',  '4.5.0'
   gem 'byebug',              '6.0.2'
-  gem 'populator',           '1.0.0'
-  gem 'faker',               '1.5.0'
+  gem 'annotate',            '2.6.10'
 end
 
 group :development do

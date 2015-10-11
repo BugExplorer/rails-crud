@@ -84,3 +84,16 @@ table > caption {
     padding: 0;
   }
 }
+
+/* tag cloud */
+#tag_cloud {
+  line-height: 1.8em;
+  span { margin: 3px; }
+  .sm { font-size: 0.8em; }
+  .nm { font-size: 1.2em; }
+  .big { font-size: 1.8em; }
+}
+
+.jumbotron {
+  padding: 30px 10px !important;
+}

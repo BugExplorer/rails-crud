@@ -8,6 +8,6 @@ class TagsController < ApplicationController
   protected
 
     def find_tag
-      @tag = Tag.where(slug: params[:id]).first
+      @tag = Tag.where(name: params[:id]).first
     end
 end

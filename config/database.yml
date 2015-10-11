@@ -19,6 +19,7 @@ test:
 
 production:
   <<: *default
-  database: posts-project_production
-  username: posts-project
-  password: <%= ENV['POSTS-PROJECT_DATABASE_PASSWORD'] %>
+  host: <%= ENV['HOST'] %>
+  database: <%= ENV['DB'] %>
+  username: <%= ENV['USER'] %>
+  password: <%= ENV['PASS'] %>

@@ -12,6 +12,7 @@ h2
           th Actions
       tbody
         tr
+        - cache @post
           td class="col-md-2 #{@post.title_size}-title"
             = @post.title
           td class="col-md-2"
@@ -37,11 +38,12 @@ h2
       p Category: #{@post.category}
 
     - if @post_tags.any?
-      .well
-        p Tags:
-        - @post_tags.each do |tag|
-          ' #{link_to tag.name, tag}
-      hr
+      - cache @post_tags
+        .well
+          p Tags:
+          - @post_tags.each do |tag|
+            ' #{link_to tag.name, tag}
+        hr
 
     .row
       .col-md-8.col-md-offset-2
@@ -50,8 +52,9 @@ h2
           = render partial: "comments/form", locals: { commentable: @post}
 
     - if @post.comments.any?
-      .row
-        .col-md-8.col-md-offset-2
-          hr
-          = render @post.comments
+      - cache @post.comments
+        .row
+          .col-md-8.col-md-offset-2
+            hr
+            = render @post.comments
 

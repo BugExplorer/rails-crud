@@ -13,6 +13,12 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @article_tags = Tag.where(id: @article.tag_ids)
+
+    if stale?(@product)
+      respond_to do |format|
+        format.html
+      end
+    end
   end
 
   def edit

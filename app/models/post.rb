@@ -14,6 +14,7 @@
 class Post < ActiveRecord::Base
   include Taggable
   include Commentable
+  include CustomFields
 
   default_scope -> { order(created_at: :desc) }
 
@@ -21,7 +22,8 @@ class Post < ActiveRecord::Base
   validates :author_name, presence: true, length: { maximum: 65 }
   validates :content,     presence: true
 
+  custom_fields :category, :font_size
+
   has_one :picture, as: :assetable, dependent: :destroy
   accepts_nested_attributes_for :picture
-
 end

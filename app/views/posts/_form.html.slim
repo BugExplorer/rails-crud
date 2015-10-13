@@ -14,6 +14,13 @@
         = p.label :picture
         = p.file_field :data
 
+      = f.fields_for :parameters do |p|
+        = p.label :category
+        = p.select(:category,
+                   options_for_select([ "Rails", "Ruby", "Ruby on Rails" ]),
+                   class: 'form-control')
+      br
+
       = f.label "Tags"
       = select_tag(:tag_ids,
                    options_from_collection_for_select(@tags, :id, :name,
@@ -25,5 +32,18 @@
 
 javascript:
   $(document).ready(function() {
-    $("#tag_ids").select2({ tags: true, theme: "bootstrap" })
+    $("#tag_ids").select2({ tags: true, theme: "bootstrap" });
+
+    $("#post_parameters_category").select2({
+      theme: "bootstrap"
+    });
+
+    $('#post_picture_attributes_data').bind('change', function() {
+      var size_in_megabytes = this.files[0].size/1024/1024;
+      if (size_in_megabytes > 10) {
+        alert('Maximum file size is 10MB. Please choose a smaller file.');
+      }
+    });
   });
+
+

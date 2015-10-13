@@ -13,4 +13,14 @@
 
 class Thumbnail < Asset
   mount_uploader :data, ThumbnailUploader, mount_on: :filename
+
+  validate :thumbnail_size
+
+  private
+
+    def thumbnail_size
+      if data.file.size > 2.megabytes
+        errors.add(:data, 'should be less than 2MB')
+      end
+    end
 end

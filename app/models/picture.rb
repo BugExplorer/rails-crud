@@ -13,4 +13,14 @@
 
 class Picture < Asset
   mount_uploader :data, PictureUploader, mount_on: :filename
+
+  validate :picture_size
+
+  private
+
+    def picture_size
+      if data.file.size > 10.megabytes
+        errors.add(:data, 'should be less than 10MB')
+      end
+    end
 end

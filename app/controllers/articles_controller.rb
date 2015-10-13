@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :get_all_tags, only: [:new, :create, :edit, :update]
+  include FindingAllTags
 
   def index
     @articles = Article.all.page(params[:page]).per(5)
@@ -46,10 +46,6 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def get_all_tags
-      @tags = Tag.all
-    end
-
     def article_params
       params.require(:article).permit(:title, :description,
                                       :content, :author_name,

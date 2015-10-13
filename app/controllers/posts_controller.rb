@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :get_all_tags, only: [:new, :create, :edit, :update]
+  include FindingAllTags
 
   def index
     @posts = Post.page(params[:page]).per(10)
@@ -54,10 +54,6 @@ class PostsController < ApplicationController
   end
 
   private
-    def get_all_tags
-      @tags = Tag.all
-    end
-
     def post_params
       params.require(:post).permit(:title, :content, :author_name,
                                    picture_attributes: [:data])

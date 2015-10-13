@@ -14,6 +14,7 @@
 
 class Article < ActiveRecord::Base
   include Taggable
+  include Commentable
 
   default_scope -> { order(created_at: :desc) }
 
@@ -24,5 +25,4 @@ class Article < ActiveRecord::Base
 
   has_one :thumbnail, as: :assetable, dependent: :destroy
   accepts_nested_attributes_for :thumbnail
-  has_many :comments, as: :commentable, dependent: :delete_all
 end

@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new post_params
-    @post.tag_ids = params[:tag_ids]
+    @post.tag_ids = post_params[:tag_ids]
     if @post.save
       redirect_to @post
     else
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.tag_ids = params[:tag_ids] if params[:tag_ids]
+    @post.tag_ids = post_params[:tag_ids] if post_params[:tag_ids]
     if @post.update_attributes post_params
       redirect_to @post
     else
@@ -56,8 +56,8 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :content, :author_name,
-                                   parameters: [:category],
+      params.require(:post).permit(:title, :content, :author_name, :tag_ids,
+                                   parameters: [:category, :title_size],
                                    picture_attributes: [:data])
     end
 end

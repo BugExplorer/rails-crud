@@ -16,13 +16,13 @@ class Post < ActiveRecord::Base
   include Commentable
   include CustomFields
 
+  custom_fields :category, :title_size
+
   default_scope -> { order(created_at: :desc) }
 
   validates :title,       presence: true, length: { maximum: 255 }
   validates :author_name, presence: true, length: { maximum: 65 }
   validates :content,     presence: true
-
-  custom_fields :category, :font_size
 
   has_one :picture, as: :assetable, dependent: :destroy
   accepts_nested_attributes_for :picture

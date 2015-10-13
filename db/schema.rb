@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013161517) do
+ActiveRecord::Schema.define(version: 20151013212207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20151013161517) do
     t.hstore   "parameters",  default: {}, null: false
   end
 
+  add_index "posts", ["parameters"], name: "posts_gin_parameters", using: :gin
   add_index "posts", ["tag_ids"], name: "index_posts_on_tag_ids", using: :gin
 
   create_table "tags", force: :cascade do |t|

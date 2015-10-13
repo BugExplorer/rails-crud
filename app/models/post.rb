@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  tag_ids     :integer          default([]), is an Array
+#  parameters  :hstore           default({}), not null
 #
 
 class Post < ActiveRecord::Base

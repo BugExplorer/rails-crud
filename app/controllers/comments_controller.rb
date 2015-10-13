@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def show
     @comment = Comment.find(params[:id])
   end
@@ -7,9 +6,7 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build comment_params
-    if @comment.save
-      redirect_to @commentable
-    end
+    redirect_to @commentable if @comment.save
   end
 
   def update
@@ -31,6 +28,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
     def find_commentable
       resource, id = request.path.split('/')[1, 2]
       resource.singularize.classify.constantize.find(id)

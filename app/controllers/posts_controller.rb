@@ -16,9 +16,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render template: "posts/show_pdf.html.slim",
-               pdf: "report",
-               layout: "pdf.html.slim"
+        render template: 'posts/show_pdf.html.slim',
+               pdf: 'report',
+               layout: 'pdf.html.slim'
       end
     end
   end
@@ -54,6 +54,7 @@ class PostsController < ApplicationController
   end
 
   private
+
     def post_params
       params.require(:post).permit(:title, :content, :author_name,
                                    picture_attributes: [:data])

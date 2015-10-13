@@ -2,10 +2,10 @@ module FindingAllTags
   extend ActiveSupport::Concern
 
   included do
-    before_action :get_all_tags, only: [:new, :create, :edit, :update]
+    before_action :all_tags
   end
 
-  def get_all_tags
+  def all_tags
     @tags = Tag.all
   end
 end

@@ -1,11 +1,12 @@
-li
-  h4 Post: #{post.title} | by #{post.author_name}
-  span.right
-    ul.menu
-      li
-        = link_to 'Show', post
-      li
-        = link_to 'Edit', edit_post_path(post)
-      li
-        = link_to 'Delete', post, method: :delete,
-          data: { confirm: "Are you sure?" }
+- cache post
+  li
+    h4 Post: #{post.title} | by #{post.author_name}
+    span.right
+      ul.menu
+        li
+          = link_to 'Show', post
+        li
+          = link_to 'Edit', edit_post_path(post)
+        li
+          = link_to 'Delete', post, method: :delete,
+            data: { confirm: "Are you sure?" }

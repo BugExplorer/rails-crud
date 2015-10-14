@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article_tags = Tag.where(id: @article.tag_ids)
 
-    if stale?(@product)
+    if stale?(@article)
       respond_to do |format|
         format.html
       end

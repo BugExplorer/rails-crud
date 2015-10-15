@@ -12,22 +12,16 @@ class StaticPagesController < ApplicationController
       end
     end
 
-    create_entries_array
-  end
+    @tags.each do |tag|
+      # Get current tag's font size
+      css_class =
+        case @tags_hash[tag.id]
+        when 0..(@content.count / 8) then 'sm'
+        when (@content.count / 8 + 1)..(@content.count / 7) then 'nm'
+        else 'big'
+        end
 
-  private
-
-    def create_entries_array
-      @tags.each do |tag|
-        # Get current tag's font size
-        css_class =
-          case @tags_hash[tag.id]
-          when 0..(@content.count / 8) then 'sm'
-          when (@content.count / 8 + 1)..(@content.count / 7) then 'nm'
-          else 'big'
-          end
-
-        @entries << { tag: tag, css_class: css_class }
-      end
+      @entries << { tag: tag, css_class: css_class }
     end
+  end
 end

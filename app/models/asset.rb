@@ -13,4 +13,7 @@
 
 class Asset < ActiveRecord::Base
   belongs_to :assetable, polymorphic: true
+
+  validates :filename, length: { maximum: 45 }
+  validates :type, length: { maximum: 30 }
 end

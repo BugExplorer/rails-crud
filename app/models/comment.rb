@@ -14,6 +14,8 @@
 class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true, touch: true
 
+  default_scope -> { order(created_at: :desc) }
+
   validates :author_name, length: { maximum: 65 }
   validates :content, presence: true
   validates :commentable_type, inclusion: { in: %w(Article Post) }

@@ -6,7 +6,16 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build comment_params
-    redirect_to @commentable if @comment.save
+
+    if @comment.save
+      # get a channel name (post4, article2, etc.)
+      path = request.path.split('/')
+      channel = path[1] + path[2]
+
+      # render html for JS append
+      html = render @comment, layout: false
+      Pusher[channel].trigger 'comments/create', html
+    end
   end
 
   def update

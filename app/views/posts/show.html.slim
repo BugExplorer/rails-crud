@@ -51,10 +51,9 @@ h2
           h4 Leave a Comment:
           = render partial: "comments/form", locals: { commentable: @post}
 
-    - if @post.comments.any?
-      - cache @post.comments
-        .row
-          .col-md-8.col-md-offset-2
-            hr
-            = render @post.comments
+    - cache @post.comments
+      .row
+        .col-md-8.col-md-offset-2 id="comments"
+          = render @post.comments
 
+= javascript_include_tag "pusher.js"

@@ -20,4 +20,34 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  submit: "Submit"
+
+  article: "Article"
+  post: "Post"
+  picture: "Picture"
+  thumbnail: "Thumbnail"
+  tag_cloud: "Tag cloud"
+
+  project_name: "Rails project"
+  project_desc: "Here you can create an article or a post"
+
+  entry:
+    title: "Title"
+    author_name: "Author name"
+    description: "Description"
+    content: "Content"
+    actions: "Actions"
+    tags: "Tags"
+    leave_a_comment: "Leave a Comment"
+    category: "Category"
+    title_size: "Title size"
+
+  actions:
+    new: "New"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    sure: "Are you sure?"
+
+  go: "Go to %{name}"
+  create: "Create new %{name}"

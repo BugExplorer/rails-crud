@@ -1,15 +1,15 @@
 h2
-  = link_to 'Go to the posts', posts_path
+  = link_to t('go', name: 'the posts'), posts_path
 
 .container
   .row
-    table class="table table-hover table-bordered"
+    table class="table table-bordered"
       thead
         tr
-          th Title
-          th Author name
-          th Content
-          th Actions
+          th = t 'entry.title'
+          th = t 'entry.author_name'
+          th = t 'entry.content'
+          th = t 'entry.actions'
       tbody
         tr
         - cache @post
@@ -27,12 +27,12 @@ h2
               button [ type="button" class="btn btn-default dropdown-toggle"
                 data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" ]
-                ' Actions
+                = t 'entry.actions'
                 span class="caret"
               ul class="dropdown-menu"
-                li = link_to 'Edit', edit_post_path(@post)
-                li = link_to 'Delete', @post, method: :delete,
-                       data: { confirm: "Are you sure?" }
+                li = link_to t('actions.edit'), edit_post_path(@post)
+                li = link_to t('actions.delete'), @post, method: :delete,
+                       data: { confirm: t('actions.sure') }
 
     .well
       p Category: #{@post.category}
@@ -40,7 +40,7 @@ h2
     - if @post_tags.any?
       - cache @post_tags
         .well
-          p Tags:
+          p = t 'entry.tags'
           - @post_tags.each do |tag|
             ' #{link_to tag.name, tag}
         hr
@@ -48,7 +48,7 @@ h2
     .row
       .col-md-8.col-md-offset-2
         .well
-          h4 Leave a Comment:
+          h4 = t 'entry.leave_a_comment'
           = render partial: "comments/form", locals: { commentable: @post}
 
     - cache @post.comments

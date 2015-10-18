@@ -1,13 +1,13 @@
-h1 Rails project
-h2 Here you can create an article or a post
+h1 = t :project_name
+h2 = t :project_desc
 
 h2
-  = link_to 'Posts', posts_path
+  = link_to t('go', name: 'the posts'), posts_path
 h2
-  = link_to 'Articles', articles_path
+  = link_to t('go', name: 'the articles'), articles_path
 
 - unless @entries.empty?
-  h1 Tags cloud
+  h1 = t :tag_cloud
   .jumbotron
     .container
       .row

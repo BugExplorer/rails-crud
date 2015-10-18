@@ -1,5 +1,5 @@
 h2
-  = link_to 'Go to the index', root_url
+  = link_to t('go', name: 'the index'), root_url
 
 .container
   .row
@@ -11,11 +11,11 @@ h2
               = @comment.author_name
 
               small   Posted #{time_ago_in_words(@comment.created_at)} ago.
-              small = link_to " show ", @comment
-              small = link_to " edit ", edit_comment_path
+              small = link_to t('actions.show'), @comment
+              small = link_to t('actions.edit'), edit_comment_path
               small
-                = link_to "delete", @comment, method: :delete,
-                    data: { confirm: "Are you sure?" }
+                = link_to t('actions.delete'), @comment, method: :delete,
+                    data: { confirm: t('actions.sure') }
             = @comment.content
 
 

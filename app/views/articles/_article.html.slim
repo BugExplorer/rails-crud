@@ -1,13 +1,13 @@
 li
-  h4 Article: #{article.title} | by #{article.author_name}
+  h4 #{t :article}: #{article.title} | by #{article.author_name}
   span.right
     ul.menu
       li
-        = link_to 'Show', article
+        = link_to t('actions.show'), article
       li
-        = link_to 'Edit', edit_article_path(article)
+        = link_to t('actions.edit'), edit_article_path(article)
       li
-        = link_to 'Delete', article, method: :delete,
-          data: { confirm: "Are you sure?" }
+        = link_to t('actions.delete'), article, method: :delete,
+          data: { confirm: t('actions.sure') }
   span.content = article.description
 

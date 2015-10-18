@@ -1,8 +1,8 @@
 = form_for([commentable, Comment.new], remote: true) do |f|
-  = f.label :author_name
+  = f.label t 'entry.author_name'
   = f.text_field :author_name, class: 'form-control'
 
-  = f.label :content
+  = f.label 'entry.content'
   = f.text_area :content, class: 'form-control'
 
   = f.submit "Submit", class: "btn btn-primary"
